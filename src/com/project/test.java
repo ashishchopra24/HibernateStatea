@@ -15,7 +15,9 @@ public class test {
         emp.setLastName("chopra");
 
         session.save(emp);
-        System.out.println("emp data saved");
+
+        System.out.println("employee data saved");
+
         session.getTransaction().commit();
         HibernateUtil.down();
     }
