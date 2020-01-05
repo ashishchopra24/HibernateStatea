@@ -21,22 +21,9 @@ public class test {
 
         Session sec2=HibernateUtil.getSessionFactory().openSession();
         sec2.beginTransaction();
-        Employee e1=(Employee) sec2.load(Employee.class,id);
-        System.out.println("1 "+e1.getFirstName());
+         emp.setLastName("temp");
+         sec2.saveOrUpdate(emp);
         sec2.getTransaction().commit();
-
-        Session sec3=HibernateUtil.getSessionFactory().openSession();
-        sec3.beginTransaction();
-        Employee e2=(Employee) sec3.load("com.project.Employee",id);
-        System.out.println("2 "+e2.getFirstName());
-        sec3.getTransaction().commit();
-
-        Session sec4=HibernateUtil.getSessionFactory().openSession();
-        sec4.beginTransaction();
-        Employee e3=new Employee();
-        sec4.load(e3,id);
-        System.out.println("3 "+e3.getFirstName());
-        sec4.getTransaction().commit();
 
 
         HibernateUtil.down();
